@@ -65,8 +65,8 @@ const PricingSection = () => {
         'Requer WhatsApp Business'
       ],
       highlight: false,
-      buttonVariant: 'default',
-      buttonClass: 'bg-accent hover:bg-accent/90 text-white',
+      buttonVariant: 'outline',
+      buttonClass: 'border-primary text-primary hover:bg-primary hover:text-white',
       buttonText: 'Falar com Consultor',
       buttonLink: 'https://wa.me/5518998258093'
     }
