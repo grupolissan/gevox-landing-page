@@ -19,17 +19,17 @@ html {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     
-    /* Primary: Azul Glacial #1E90FF */
-    --primary: 210 100% 56%;
+    /* Primary: Gevox Green #0F943B */
+    --primary: 140 81.6% 32%;
     --primary-foreground: 0 0% 100%;
     
-    /* Secondary: Verde Menta #20C997 */
-    --secondary: 162 73% 46%;
+    /* Secondary: Gevox Blue #112E51 */
+    --secondary: 213 65.3% 19.2%;
     --secondary-foreground: 0 0% 100%;
     
-    /* Accent: Ameixa Negra #2D1B4E */
-    --accent: 261 48% 21%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent: Gevox Light Blue #E8EEF5 */
+    --accent: 212 43.8% 93.7%;
+    --accent-foreground: 213 65.3% 19.2%;
     
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -63,13 +63,13 @@ html {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     
-    --primary: 210 100% 56%;
+    --primary: 140 81.6% 32%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 162 73% 46%;
+    --secondary: 213 65.3% 19.2%;
     --secondary-foreground: 0 0% 100%;
     
-    --accent: 261 48% 21%;
+    --accent: 213 65.3% 19.2%;
     --accent-foreground: 0 0% 100%;
     
     --muted: 217.2 32.6% 17.5%;

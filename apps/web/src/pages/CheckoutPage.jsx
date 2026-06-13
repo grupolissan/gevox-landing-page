@@ -79,8 +79,20 @@ const CheckoutPage = () => {
   };
 
   const calculateTotal = () => {
-    return isAnnual ? (plan.annualPrice * 12).toFixed(2) : plan.monthlyPrice.toFixed(2);
+    let total = plan.monthlyPrice;
+    if (isAnnual) {
+      total = total * 12;
+      if (paymentMethod === 'PIX') {
+        total = total * 0.80; // 20% discount
+      } else if (paymentMethod === 'CREDIT_CARD') {
+        total = total * 0.90; // 10% discount
+      }
+    }
+    return total;
   };
+
+  const totalValue = calculateTotal();
+  const savings = isAnnual ? (plan.monthlyPrice * 12) - totalValue : 0;
 
   return (
     <>
@@ -204,7 +216,7 @@ const CheckoutPage = () => {
                             onClick={() => setIsAnnual(true)}
                             className="w-full"
                           >
-                            Anual (20% OFF)
+                            Anual (Até 20% OFF)
                           </Button>
                           <Button 
                             type="button"
@@ -224,17 +236,19 @@ const CheckoutPage = () => {
                             type="button"
                             variant={paymentMethod === 'PIX' ? 'secondary' : 'outline'}
                             onClick={() => setPaymentMethod('PIX')}
-                            className="w-full"
+                            className="w-full flex flex-col items-center justify-center py-2 h-auto"
                           >
-                            PIX
+                            <span>PIX</span>
+                            {isAnnual && <span className="text-xs text-green-600 font-medium">(-20%)</span>}
                           </Button>
                           <Button 
                             type="button"
                             variant={paymentMethod === 'CREDIT_CARD' ? 'secondary' : 'outline'}
                             onClick={() => setPaymentMethod('CREDIT_CARD')}
-                            className="w-full"
+                            className="w-full flex flex-col items-center justify-center py-2 h-auto"
                           >
-                            Cartão (Até 12x)
+                            <span>Cartão</span>
+                            {isAnnual && <span className="text-xs text-green-600 font-medium">(Até 12x) (-10%)</span>}
                           </Button>
                         </div>
                       </div>
@@ -243,11 +257,11 @@ const CheckoutPage = () => {
                     <div className="pt-4 border-t border-border flex justify-between items-end">
                       <div>
                         <p className="text-sm text-muted-foreground">Total a pagar</p>
-                        {isAnnual && <p className="text-xs text-green-600 font-medium">Você economiza {(plan.monthlyPrice * 12 - plan.annualPrice * 12).toFixed(2).replace('.', ',')}!</p>}
+                        {isAnnual && savings > 0 && <p className="text-xs text-green-600 font-medium">Você economiza R$ {savings.toFixed(2).replace('.', ',')}!</p>}
                       </div>
                       <div className="text-right">
                         <span className="text-3xl font-bold text-foreground">
-                          R$ {calculateTotal().replace('.', ',')}
+                          R$ {totalValue.toFixed(2).replace('.', ',')}
                         </span>
                         <span className="text-muted-foreground text-sm block">
                           {isAnnual ? '/ano' : '/mês'}
