@@ -51,7 +51,7 @@ const ComparisonTable = () => {
                 <span className="text-lg font-bold text-secondary">Plus</span>
               </th>
               <th className="p-6 border-b border-border bg-background text-center w-1/4 min-w-[150px]">
-                <span className="text-lg font-semibold text-accent">Premium</span>
+                <span className="text-lg font-semibold text-primary">Premium</span>
               </th>
             </tr>
           </thead>
